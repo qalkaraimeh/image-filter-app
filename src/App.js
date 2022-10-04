@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Container, Box, Grid, Typography } from "@mui/material";
+import ImageField from "./components/ImageField";
+import Filters from "./components/Filters";
+import { FilterProvider } from "./context/FilterContext";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FilterProvider>
+      <Container sx={{ marginTop: "4em", marginBottom: "4em" }}>
+        <Box sx={{ textAlign: "center", marginBottom: "3em" }}>
+          <Typography variant="h3" component="h3">
+            Image Filter
+          </Typography>
+        </Box>
+        <Grid container spacing={10}>
+          <ImageField />
+          <Filters />
+        </Grid>
+      </Container>
+    </FilterProvider>
   );
 }
 
